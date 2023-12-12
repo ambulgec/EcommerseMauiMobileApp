@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcommerceMAUI.Views.CartPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Name="cartPage"
+             Shell.BackgroundColor="White"
+             Shell.ForegroundColor="Black"
+             Shell.TitleColor="Black"
+             Shell.NavBarIsVisible="True"
+             BackgroundColor="White"
+             Title="Cart">
+
+
+    <Grid>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <Grid>
+                <Grid IsVisible="{Binding IsLoading}">
+                    <ActivityIndicator IsRunning="True" VerticalOptions="Center" Color="Red"/>
+                </Grid>
+                <VerticalStackLayout Padding="10"  IsVisible="{Binding IsNotLoading}">
+                    <CollectionView ItemsSource="{Binding AllProductDataList}">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical"
+                                   ItemSpacing="10"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.EmptyView>
+                            <VerticalStackLayout
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center">
+                                <BoxView HeightRequest="100"
+                                     Color="Transparent"/>
+                                <Label
+                                Text="No Item Found"
+                                FontSize="25"
+                                TextColor="Gray"
+                                HorizontalTextAlignment="Center">
+                                </Label>
+                            </VerticalStackLayout>
+                        </CollectionView.EmptyView>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border StrokeShape="RoundRectangle 15"
+                            StrokeThickness="0"
+                            Padding="10">
+                                    <Grid ColumnDefinitions="25,Auto,50 , *, 80,25">
+                                        <Label Grid.Column="0"
+                                   Text="{Binding Quantity}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                           FontSize="18"
+                                           FontAttributes="Bold"/>
+                                        <Label Grid.Column="1"
+                                   Text="x"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                            FontSize="18"
+                                           FontAttributes="Bold"/>
+                                        <Image
+                                Grid.Column="2"
+                                Source="{Binding ProductImageFilePath}"
+                                HeightRequest="25"
+                                WidthRequest="25"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"></Image>
+                                        <VerticalStackLayout
+                                Grid.Column="3"
+                                VerticalOptions="Center"
+                                Spacing="2">
+                                            <Label Text="{Binding ProductName}"/>
+                                            <Label Text="{Binding Price}"/>
+                                        </VerticalStackLayout>
+                                        <Label
+                                        Grid.Column="4"
+                                        Text="{Binding amount}"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"
+                                        FontSize="15"></Label>
+                                        <ImageButton
+                                            Grid.Column="5"
+                                            Source="trash.png"
+                                            BackgroundColor="Transparent"
+                                            Command="{Binding Source={x:Reference cartPage}, Path=BindingContext.DeleteProductCommand}"    
+                                            CommandParameter="{Binding .}"
+                                            WidthRequest="25"
+                                            HeightRequest="25"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="Center" >
+                                            <ImageButton.Behaviors>
+
+                                                <toolkit:IconTintColorBehavior TintColor="Red" />
+                                            </ImageButton.Behaviors>
+                                        </ImageButton>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
+        <Border StrokeShape="RoundRectangle 40"
+                BackgroundColor="DarkGoldenrod"
+                StrokeThickness="0"
+                VerticalOptions="End"
+                Margin="5"
+                Padding="10">
+            <Grid
+                ColumnDefinitions="*,*">
+                <Label
+                    Grid.Column="0"
+                    Padding="18,0"
+                    TextColor="White"
+                    VerticalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Total: &#10;"
+                                  FontSize="18"/>
+                            <Span Text="{Binding BindingContext.TotalPrice, Source={x:Reference cartPage}, StringFormat='{}{0:c}'}"
+                                  FontSize="20"
+                                  FontAttributes="Bold"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Button 
+                    Grid.Column="1"
+                    Text="Checkout"
+                    BackgroundColor="Goldenrod"
+                    CornerRadius="22"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    Padding="25,10"
+                    Command="{Binding CheckoutCommand}"
+                    CommandParameter="{Binding ProductDetail}"/>
+            </Grid>
+        </Border>
+    </Grid>
+
+</ContentPage>
+
+
+    
+  
+
+ 

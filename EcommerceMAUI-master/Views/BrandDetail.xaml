@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcommerceMAUI.Views.BrandDetail"          
+              x:Name="BrandListPage"
+             Shell.ForegroundColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
+             Shell.TitleColor="White"
+             BackgroundColor="White"
+             xmlns:local="clr-namespace:EcommerceMAUI.Views"
+             Title="Brand Detail">
+
+
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <Grid>
+                <Grid IsVisible="{Binding IsLoading}">
+                    <ActivityIndicator IsRunning="True" VerticalOptions="Center" Color="Red"/>
+                </Grid>
+
+                <StackLayout Spacing="0"  IsVisible="{Binding IsNotLoading}">
+
+                    <CollectionView ItemsSource="{Binding AllProductDataList}"
+                            Margin="12" VerticalOptions="FillAndExpand">
+
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout HorizontalItemSpacing="12"
+                                     Orientation="Vertical"
+                                     Span="2"
+                                     VerticalItemSpacing="12" />
+                        </CollectionView.ItemsLayout>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Margin="0"
+                                     Background="White"
+                                     HorizontalOptions="FillAndExpand">
+                                    <Border StrokeShape="RoundRectangle 6,0,0,6"
+                                    Background="transparent"
+                                    StrokeThickness="1">
+                                        <Image Aspect="AspectFit"
+                                       HeightRequest="240"
+                                       Source="{Binding image_link}"
+                                       WidthRequest="165" />
+                                    </Border>
+
+                                    <StackLayout Margin="0,8,0,0">
+                                        <Label FontSize="16"
+                                       HorizontalOptions="Center"
+                                       Text="{Binding brand}"
+                                       TextColor="Black"
+                                       VerticalOptions="Start">
+
+                                        </Label>
+
+                                        <Label FontSize="12"
+                                       HorizontalOptions="Center"
+                                       Text="{Binding category}"
+                                       TextColor="#929292"
+                                       VerticalOptions="Start">
+
+                                        </Label>
+
+                                        <Label FontSize="16"
+                                       HorizontalOptions="Center"
+                                       Text="{Binding price, StringFormat='${0:F2}'}"
+                                       TextColor="#00C569"
+                                       VerticalOptions="Start">
+
+                                        </Label>
+
+
+                                    </StackLayout>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:Reference BrandListPage}, Path=BindingContext.SelectProductCommand}"
+                                                      CommandParameter="{Binding .}" />
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+    

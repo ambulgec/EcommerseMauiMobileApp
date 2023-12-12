@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="EcommerceMAUI.Views.HomePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:EcommerceMAUI.Converters"
+    x:Name="homePage"
+    Title="HsM"
+    BackgroundColor="White"
+    Shell.NavBarIsVisible="True">
+
+    <ContentPage.Resources>
+        <converters:ImageToNewImage x:Key="ImageTonewImage" />
+
+    </ContentPage.Resources>
+    <StackLayout Margin="8,12" Spacing="0">
+        <ScrollView VerticalOptions="FillAndExpand">
+            <Grid>
+                <Grid IsVisible="{Binding IsLoading}">
+                  <ActivityIndicator IsRunning="True" VerticalOptions="Center" Color="Red"/>
+                </Grid>
+
+                <StackLayout Spacing="0" IsVisible="{Binding IsNotLoading}">
+                
+                <CarouselView x:Name="ImageCarousel" IndicatorView="indicatorView">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid RowDefinitions=".2*,.6*,.2*">
+                                <Border
+                                    HeightRequest="300"
+                                    Stroke="#6E557C"
+                                    StrokeThickness="2"
+                                    WidthRequest="350">
+                                    <Image Source="{Binding}" Aspect="AspectFill"/>
+                                    <Border.Shadow>
+                                        <Shadow
+                                            Brush="#C283FD"
+                                            Opacity=".7"
+                                            Radius="100"
+                                            Offset="0,0">
+                                        </Shadow>
+                                    </Border.Shadow>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <IndicatorView
+                    x:Name="indicatorView"
+                    Grid.Row="3"
+                    Margin="0,20,0,0"
+                    HorizontalOptions="Center"
+                    IndicatorColor="Black"
+                    IndicatorSize="8"
+                    SelectedIndicatorColor="red"
+                    VerticalOptions="Center">
+                </IndicatorView>
+
+                <!---New Feature Brand-->
+                <StackLayout
+                    Margin="0,12"
+                    Orientation="Horizontal"
+                    Spacing="0">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HorizontalOptions="Start"
+                        HorizontalTextAlignment="Start"
+                        Text="Featured Brands"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+
+                    <Button
+                        BackgroundColor="Transparent"
+                        Command="{Binding RecommendedTapCommand}"
+                        FontSize="16"
+                        HorizontalOptions="EndAndExpand"
+                        Text="View All"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+                </StackLayout>
+                    <Button
+                        Text="Checking"
+                        Command="{Binding TestCommand} "
+                        CommandParameter="{Binding .}">
+                        
+                    </Button>
+                <CollectionView Margin="0,12" ItemsSource="{Binding FeaturedBrandsDataList}">
+
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="12" Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout
+                                Margin="0"
+                                Background="White"
+                                HorizontalOptions="FillAndExpand">
+                                <Border
+                                    Padding="0"
+                                    Background="transparent"
+                                    StrokeShape="RoundRectangle 6,0,0,6"
+                                    StrokeThickness="1">
+                                    <Image
+                                        Aspect="AspectFit"
+                                        HeightRequest="240"
+                                        Source="{Binding image_link ,Converter={StaticResource ImageTonewImage}}"
+                                        WidthRequest="165" />
+                                </Border>
+
+                                <StackLayout Margin="0,8,0,0">
+                                    <Label
+                                        FontSize="16"
+                                        HorizontalOptions="Center"
+                                        Text="{Binding brand}"
+                                        TextColor="Black"
+                                        VerticalOptions="Start" />
+
+                                    <Label
+                                        FontSize="12"
+                                        HorizontalOptions="Center"
+                                        Text="{Binding Details}"
+                                        TextColor="#929292"
+                                        VerticalOptions="Start" />
+                                </StackLayout>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference homePage}, Path=BindingContext.BrandTapCommand}" CommandParameter="{Binding .}" />
+                                </StackLayout.GestureRecognizers>
+
+                                    
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                
+                <!--New Ctaegories-->
+                <StackLayout
+                    Margin="0,5"
+                    Orientation="Horizontal"
+                    Spacing="0">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HorizontalOptions="Start"
+                        HorizontalTextAlignment="Start"
+                        Text="Categories"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+
+                    <Button
+                        BackgroundColor="Transparent"
+                        Command="{Binding CategoryTapCommand}"
+                        FontSize="16"
+                        HorizontalOptions="EndAndExpand"
+                        Text="View All"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+                </StackLayout>
+                
+
+                <CollectionView Margin="0,10" ItemsSource="{Binding CategoriesDataList}">
+
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="12" Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Border
+                                    Padding="16,8"
+                                    Background="white"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Stroke="#6E557C"
+                                    StrokeShape="RoundRectangle 8"
+                                    StrokeThickness="2"
+                                    VerticalOptions="FillAndExpand">
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame
+                                            Padding="0"
+                                            CornerRadius="20"
+                                            HasShadow="False"
+                                            HeightRequest="50"
+                                            Opacity="10"
+                                            WidthRequest="40">
+                                            <Image
+                                                Aspect="AspectFit"
+                                                HeightRequest="40"
+                                                HorizontalOptions="CenterAndExpand"
+                                                Source="{Binding image_link ,Converter={StaticResource ImageTonewImage}}"
+                                                VerticalOptions="CenterAndExpand"
+                                                WidthRequest="40" />
+                                        </Frame>
+
+                                        <StackLayout Margin="6,0">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="16"
+                                                HorizontalOptions="Center"
+                                                Text="{Binding CategoryName}"
+                                                TextColor="Black" />
+
+                                            <Label
+                                                FontSize="12"
+                                                HorizontalOptions="Center"
+                                                Text="{Binding Details}"
+                                                TextColor="#929292" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:Reference homePage}, Path=BindingContext.CategoryTapCommand}" CommandParameter="{Binding .}" />
+                                    </Border.GestureRecognizers>
+                                </Border>
+
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <!--Product type-->
+
+                <StackLayout
+                    Margin="0,12"
+                    Orientation="Horizontal"
+                    Spacing="0">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HorizontalOptions="Start"
+                        HorizontalTextAlignment="Start"
+                        Text="Product Type"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+
+                    <Button
+                        BackgroundColor="Transparent"
+                        Command="{Binding TapCommand}"
+                        FontSize="16"
+                        HorizontalOptions="EndAndExpand"
+                        Text="View All"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+                </StackLayout>
+
+                <CollectionView Margin="0,10" ItemsSource="{Binding ProductList}">
+
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="12" Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Border
+                                    Padding="16,8"
+                                    Background="white"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Stroke="#6E557C"
+                                    StrokeShape="RoundRectangle 8"
+                                    StrokeThickness="2"
+                                    VerticalOptions="FillAndExpand">
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame
+                                            Padding="0"
+                                            CornerRadius="20"
+                                            HasShadow="False"
+                                            HeightRequest="40"
+                                            Opacity="10"
+                                            WidthRequest="40">
+                                            <Image
+                                                Aspect="AspectFit"
+                                                HeightRequest="50"
+                                                HorizontalOptions="CenterAndExpand"
+                                                Source="{Binding image_link ,Converter={StaticResource ImageTonewImage}}"
+                                                VerticalOptions="CenterAndExpand"
+                                                WidthRequest="40" />
+                                        </Frame>
+
+                                        <StackLayout Margin="6,0">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="16"
+                                                HorizontalOptions="Center"
+                                                Text="{Binding product_type}"
+                                                TextColor="Black" />
+
+                                            <Label
+                                                FontSize="12"
+                                                HorizontalOptions="Center"
+                                                Text="{Binding Details}"
+                                                TextColor="#929292" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:Reference homePage}, Path=BindingContext.ProductTapCommand}" CommandParameter="{Binding .}" />
+                                    </Border.GestureRecognizers>
+                                </Border>
+
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+            </Grid>
+        </ScrollView>
+        
+    </StackLayout>
+</ContentPage>
+
+
+

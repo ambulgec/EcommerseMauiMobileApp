@@ -1,0 +1,105 @@
+is_global = true
+build_property.TargetFramework = net7.0-android
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = true
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.RootNamespace = EcommerceMAUI
+build_property.ProjectDir = C:\Users\chandrashekharam\Desktop\21Aug\Final01Sep\EcommerceMAUI-master\
+
+[C:/Users/chandrashekharam/Desktop/21Aug/Final01Sep/EcommerceMAUI-master/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EcommerceMAUI.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/Users/chandrashekharam/Desktop/21Aug/Final01Sep/EcommerceMAUI-master/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EcommerceMAUI.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[C:/Users/chandrashekharam/Desktop/21Aug/Final01Sep/EcommerceMAUI-master/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EcommerceMAUI.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[C:/Users/chandrashekharam/Desktop/21Aug/Final01Sep/EcommerceMAUI-master/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EcommerceMAUI.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/Users/chandrashekharam/Desktop/21Aug/Final01Sep/EcommerceMAUI-master/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EcommerceMAUI.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/Users/chandrashekharam/Desktop/21Aug/Final01Sep/EcommerceMAUI-master/Views/AllProduct.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EcommerceMAUI.Views.AllProduct.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AllProduct.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AllProduct.xaml
+
+[C:/Users/chandrashekharam/Desktop/21Aug/Final01Sep/EcommerceMAUI-master/Views/BrandDetail.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EcommerceMAUI.Views.BrandDetail.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\BrandDetail.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\BrandDetail.xaml
+
+[C:/Users/chandrashekharam/Desktop/21Aug/Final01Sep/EcommerceMAUI-master/Views/CartPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EcommerceMAUI.Views.CartPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\CartPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\CartPage.xaml
+
+[C:/Users/chandrashekharam/Desktop/21Aug/Final01Sep/EcommerceMAUI-master/Views/CategoryDetail.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EcommerceMAUI.Views.CategoryDetail.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\CategoryDetail.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\CategoryDetail.xaml
+
+[C:/Users/chandrashekharam/Desktop/21Aug/Final01Sep/EcommerceMAUI-master/Views/FavItem.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EcommerceMAUI.Views.FavItem.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\FavItem.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\FavItem.xaml
+
+[C:/Users/chandrashekharam/Desktop/21Aug/Final01Sep/EcommerceMAUI-master/Views/HomePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EcommerceMAUI.Views.HomePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\HomePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\HomePage.xaml
+
+[C:/Users/chandrashekharam/Desktop/21Aug/Final01Sep/EcommerceMAUI-master/Views/LoginPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EcommerceMAUI.Views.LoginPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\LoginPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\LoginPage.xaml
+
+[C:/Users/chandrashekharam/Desktop/21Aug/Final01Sep/EcommerceMAUI-master/Views/Product.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EcommerceMAUI.Views.Product.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Product.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Product.xaml
+
+[C:/Users/chandrashekharam/Desktop/21Aug/Final01Sep/EcommerceMAUI-master/Views/ProductAllType.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EcommerceMAUI.Views.ProductAllType.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ProductAllType.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ProductAllType.xaml
+
+[C:/Users/chandrashekharam/Desktop/21Aug/Final01Sep/EcommerceMAUI-master/Views/ProductDetails.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EcommerceMAUI.Views.ProductDetails.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ProductDetails.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ProductDetails.xaml

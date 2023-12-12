@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcommerceMAUI.Views.FavItem"
+              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Name="FavItemss"
+             Title="Favourites"
+             BackgroundColor="White">
+
+
+    <Grid>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <Grid>
+                <!--<Grid IsVisible="{Binding IsLoading}">
+                    <ActivityIndicator IsRunning="True" VerticalOptions="Center" Color="Red"/>
+                </Grid>-->
+                <VerticalStackLayout Padding="10" >
+                    <CollectionView ItemsSource="{Binding AllProductDataList}"
+                    Margin="0,12">
+
+
+
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout 
+                             Orientation="Vertical"
+                             Span="1"
+                             VerticalItemSpacing="12" />
+                        </CollectionView.ItemsLayout>
+
+
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <SwipeView>
+
+
+                                    <StackLayout Orientation="Horizontal"
+                                 Spacing="16">
+
+
+
+                                        <Image Aspect="AspectFit"
+                               HeightRequest="120"
+                               Source="{Binding ProductImageFilePath}"
+                               WidthRequest="120" />
+
+                                        <StackLayout Spacing="6">
+                                            <Label FontSize="16"
+                                   HorizontalOptions="StartAndExpand"
+                                   Text="{Binding ProductFavName}"
+                                   TextColor="Black">
+                                            </Label>
+                                            <Label FontSize="16"
+                                                        HorizontalOptions="StartAndExpand"
+                                                        Text="{Binding Source={x:Reference _stepper}, Path=Value, StringFormat='QTY: {0}'}"
+                                                        TextColor="Black"
+                                                        FontAttributes="Bold" />
+                                            <Label FontSize="16"
+                                                         HorizontalOptions="StartAndExpand"
+                                                        Text="{Binding ProductFavPrice, StringFormat='${0:F2}'}"
+                                                        TextColor="#00C569">
+                                            </Label>
+                                            <Button Text="Delete" BackgroundColor="#FF3D00" Command="{Binding Source={x:Reference FavItemss}, Path=BindingContext.DeleteProductCommand}" CommandParameter="{Binding .}" />
+
+                                        </StackLayout>
+                                    </StackLayout>
+                                </SwipeView>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
+    </Grid>
+
+    
+</ContentPage>
